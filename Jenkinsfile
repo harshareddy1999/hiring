@@ -10,7 +10,7 @@ pipeline{
                 echo "dev is fine we can deploy to stg"
             }
         }
-         stage("maven build-stg-print"){
+         stage("maven build-stg"){
             when{
                 branch 'stg'
             }
