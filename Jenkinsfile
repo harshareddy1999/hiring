@@ -37,6 +37,7 @@ pipeline{
                  branch 'main'
              }
              steps{
+                sh 'mvn clean package'
                 sshagent(['tomcat-creditionals-cvicd']){
                     sh 'scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/"cicd tomcat hiring"/target/hiring.war centos@172.31.1.180:/opt/apache-tomcat-10.0.27/webapps' 
                     sh "ssh centos@172.31.1.180 /opt/apache-tomcat-10.0.27/bin/shutdown.sh"
